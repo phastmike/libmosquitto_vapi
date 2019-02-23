@@ -4,11 +4,11 @@ Attempt to create, manually, a VAPI file for libmosquitto.
 
 ## Vapi File
 
-`libmosquitto.vapi` is located in `vapi` folder
+`libmosquitto.vapi` is located in `vapi` folder.
 
 ## Disclaimer
 
-Not fully tested (Work in progress but usable)
+Not fully tested (Work in progress but usable).
 
 ## Examples
 
@@ -18,7 +18,8 @@ The C example from libmosquitto man page is presented in Vala (`example_sub.vala
 
 Run make then run example_sub: 
 
-`$ make & ./src/example_sub`
+`$ make`
+`$ ./src/example_sub`
 
 Source code files (vala,generated C) are located in the `src` folder.
 
