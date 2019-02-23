@@ -12,7 +12,7 @@ Not fully tested (Work in progress but usable)
 
 ## Examples
 
-The C example from libmosquitto man page is presented in Vala.
+The C example from libmosquitto man page is presented in Vala (`example_sub.vala`).
 
 ### How to test it?
 
