@@ -1,0 +1,7 @@
+*~
+*.swp
+*.bak
+
+# Binaries
+src/test
+src/example_sub
