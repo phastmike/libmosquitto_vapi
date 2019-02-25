@@ -241,7 +241,7 @@ namespace Mosquitto {
         public int loop_start ();
     
         [CCode (cname = "mosquitto_loop_stop")]
-        public int loop_stop ();
+        public int loop_stop (bool force);
 
         [CCode (cname = "mosquitto_socket")]
         public int loop_socket ();
