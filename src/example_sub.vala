@@ -6,15 +6,6 @@ public void my_message_callback (Client client, void *userdata, Message message)
     } else {
         print ("%s (null)\n", message.topic);
     }
-
-    /* Test message_copy */
-    /*
-    var dst = Mosquitto.Message ();
-    var r = Mosquitto.Message.copy (dst, message);
-    print ("%s %s %s\n", Mosquitto.strerror (r), dst.topic, (string?) dst.payload);
-
-    dst.free_contents ();
-    */
 } 
 
 public void my_connect_callback (Client client, void *userdata, int result) {
@@ -55,8 +46,17 @@ public int main (string[] args) {
     var client = new Client (null, clean_session, null);
     client.log_callback_set (my_log_callback);
     client.connect_callback_set (my_connect_callback);
-    client.message_callback_set (my_message_callback);
+    //client.message_callback_set (my_message_callback);
     client.subscribe_callback_set (my_subscribe_callback);
+
+    /* message callback as a lambda */
+    client.message_callback_set ((client, userdata, message) => {
+        if (message.payloadlen != 0) {
+            print ("%s %s\n", message.topic, message.payload);
+        } else {
+            print ("%s (null)\n", message.topic);
+        }
+    });
 
     if (client.connect (host, port, keepalive) != 0) {
         print ("Unable to connect.\n");
