@@ -168,7 +168,8 @@ namespace Mosquitto {
     public struct Message {
         int mid;
         string topic;
-        string payload; /* Should be uint8[] but valac generates a non existent payload length */
+        [CCode (array_length_cname = "payloadlen", array_length_type = "size_t")]
+        uint8[] payload;
         int payloadlen;
         int qos;
         bool retain;
